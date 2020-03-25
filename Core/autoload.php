@@ -2,11 +2,12 @@
 
 
 
-spl_autoload_register(function(){
-    require "Core.php";
+spl_autoload_register(function($class){
     // require "Core.php";
-    // require "Core.php";
-    // require "Core.php";
+    $class = str_replace('\\',"/",$class);
+    // echo $class;
+    require $class.'.php';
+
 });
 
 
