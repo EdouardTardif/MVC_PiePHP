@@ -12,6 +12,13 @@
         <pre><?php var_dump($_GET)?></pre>
         <pre><?php var_dump($_SERVER)?></pre>
         
+        <pre><?php 
+            define('BASE_URI', str_replace('\\', '/',substr(__DIR__,strlen($_SERVER['DOCUMENT_ROOT']))));
+            // echo BASE_URI;
+            require_once (implode(DIRECTORY_SEPARATOR, ['Core','autoload.php']));
+            $app = new Core\Core();
+            $app->run(); ?>
+        </pre>
         <script src="" async defer></script>
     </body>
 </html>
