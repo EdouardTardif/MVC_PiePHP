@@ -8,9 +8,9 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <pre><?php var_dump($_POST)?></pre>
-        <pre><?php var_dump($_GET)?></pre>
-        <pre><?php var_dump($_SERVER)?></pre>
+        <pre><?php //var_dump($_POST)?></pre>
+        <pre><?php //var_dump($_GET)?></pre>
+        <pre><?php //var_dump($_SERVER)?></pre>
         
         <pre><?php 
             define('BASE_URI', str_replace('\\', '/',substr(__DIR__,strlen($_SERVER['DOCUMENT_ROOT']))));
