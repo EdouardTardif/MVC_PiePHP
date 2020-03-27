@@ -32,13 +32,9 @@ class Core
             $controller = ucfirst($array[2]) . 'Controller';
             if(class_exists($controller)){
                 $class = new $controller();
-                if(!empty($array[3])){
+                if(!empty($array[3]) && method_exists($class,$array[3] . 'Action')){
                     $method = $array[3] . 'Action';
-                    if(method_exists($class,$method)){
-                        $class->$method();
-                    } else {
-                        $class->indexAction();
-                    }
+                    $class->$method();
                 } else {
                     $class->indexAction();
                 }
