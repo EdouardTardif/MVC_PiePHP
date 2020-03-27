@@ -4,6 +4,7 @@
 
 spl_autoload_register(function($class){
     $class = str_replace('\\',"/",$class).'.php';
+    echo $class;
     if(file_exists($class)){
         require $class;
     } elseif(file_exists('./src/Controller/'.$class)){

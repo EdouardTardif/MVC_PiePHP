@@ -1,7 +1,8 @@
 <?php 
 
-namespace Core ;
 
+namespace Core ;
+use Router;
 class Core
 {
     public function run ()
@@ -9,19 +10,25 @@ class Core
 
         $array = explode('/',$_SERVER['REDIRECT_URL']);
         $arraystatic = $array;
+        array_shift($arraystatic);
 
         $controller = $array[2] . 'Controller';
-        $method = $array[3] . 'Action';
-        // echo __CLASS__ . " [ OK ]" . PHP_EOL ;
-        
-        array_shift($arraystatic);
-        
-        if(null != $route = Router::get() ){
-
+        if(class_exists($controller)){
+            // echo "oui";
+            $class = new $controller();
+            if(!empty($array[3])){
+                $method = $array[3] . 'Action';
+                if(method_exists($class,$method)){
+                    $class->$method();
+                } else {
+                    $class->indexAction();
+                }
+            } else {
+                $class->indexAction();
+            }
+        } else {
+            echo '404';
         }
-        
-        $class = new $controller();
-        $class->$method();
     }
 }
 ?>
