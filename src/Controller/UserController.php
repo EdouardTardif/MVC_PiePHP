@@ -2,9 +2,9 @@
 
 class UserController extends Controller {
 
-
     public function indexAction(){
-        echo "index";
+        $db = Database::getDatabase();
+        
     }
     public function filterAction(){
         echo "filter";

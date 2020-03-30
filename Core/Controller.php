@@ -1,10 +1,18 @@
 <?php
 
+// use Database;
 Class Controller {
 
     // public $yes = 'yes';
+    public $db;
     public static $_render;
     public function __construct(){
+        $this->db = Database::getDatabase();
+        var_dump($this->db);
+        $requete = $this->db->query('select * from users');
+        $res = $requete->fetchAll(PDO::FETCH_OBJ);
+        var_dump($res);
+
         self::render('index',['test','test2']);
         var_dump(self::$_render);
     }
