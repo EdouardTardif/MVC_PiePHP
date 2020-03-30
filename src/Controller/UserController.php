@@ -1,7 +1,6 @@
 <?php
 
-
-class UserController {
+class UserController extends Controller {
 
 
     public function indexAction(){
@@ -12,5 +11,6 @@ class UserController {
     }
     public function addAction(){
         echo "added";
+        // echo $this->yes;
     }
 }

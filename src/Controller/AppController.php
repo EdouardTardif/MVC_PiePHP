@@ -1,11 +1,10 @@
 <?php
 
-
-class AppController {
+class AppController extends Controller {
     public function indexAction(){
-        echo 'oui';
+        echo 'indexAction';
     }
     public function aboutusAction(){
-        echo 'oui';
+        echo 'aboutus';
     }
 }

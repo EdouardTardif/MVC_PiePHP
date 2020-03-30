@@ -39,7 +39,18 @@ class Core
                     $class->indexAction();
                 }
             } else {
-                echo '404'.PHP_EOL;
+                if (headers_sent()) {
+                    echo 'yes';
+                    die("Error: headers already sent!");
+                }
+                else {
+                    echo 'no';
+                    header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+                    exit();
+                }
+                // header("Location: MyBooks.php", true);
+                // exit();
+                // echo '404'.PHP_EOL;
             }
         }
         

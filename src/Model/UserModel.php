@@ -2,7 +2,7 @@
 
 class User {
 
-public function add(){
-    echo "added";
-}
+    public function addAction(){
+        echo "added";
+    }
 }
