@@ -1,10 +1,10 @@
 <?php
 
-
+// namespace Core;
 class Database {
 
     public static $db;
-    private static $host = 'localhost;';
+    private static $host = 'localhost';
     private static $dbname = 'mvc_piephp';
     private static $login = 'root';
     private static $password = '';
@@ -13,7 +13,7 @@ class Database {
     public static function getDatabase(){
         try {
             self::$db = new PDO('mysql:host='.self::$host.';dbname='.self::$dbname, self::$login, self::$password);
-            echo 'cbon';
+            // echo 'cbon';
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }

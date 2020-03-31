@@ -6,7 +6,7 @@ class Router {
     private static $routes;
 
     public static function connect($url,$route){
-        echo "Connecting $url".PHP_EOL;
+        // echo "Connecting $url".PHP_EOL;
         // print_r($route);
         self::$routes[$url] = $route;
     }

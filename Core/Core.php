@@ -22,11 +22,13 @@ class Core
         // echo $url.PHP_EOL;
         $route = Router::get($url);
         if($route != null){
-            echo "Find a route !! for $url".PHP_EOL;
-            $controller = $route['controller'];
-            $action = $route['action'];
-            echo "Controller is $controller".PHP_EOL;
-            echo "Action is $action".PHP_EOL;
+            // echo "Find a route !! for $url".PHP_EOL;
+            $controller = ucfirst($route['controller']) . 'Controller';
+            $action = $route['action'].'Action';
+            $class = new $controller();
+            $class->$action();
+            // echo "Controller is $controller".PHP_EOL;
+            // echo "Action is $action".PHP_EOL;
 
         } else {
             $controller = ucfirst($array[2]) . 'Controller';
