@@ -14,14 +14,31 @@ class UserController extends Controller {
     public function addAction(){
         //var_dump($this->db);
         //echo 'oui';
+        
+    }
+
+    public function registerAction(){
         $this->render('register');
         if(isset($_POST['email']) && isset($_POST['password'])){
             $user = new UserModel($_POST['email'],$_POST['password']);
             $user->save();
-        }
+        }    
     }
 
-    public function registerAction(){
-        $user = new UserModel();
+    public function loginAction(){
+        $this->render('login');
+        if(isset($_POST['email']) && isset($_POST['password'])){
+            $user = new UserModel($_POST['email'],$_POST['password']);
+            $res = $user->login();
+            if($res !== null){
+                session_start();
+                $_SESSION['id'] = $res->id;
+                $_SESSION['email'] = $res->email;
+                $_SESSION['password'] = $res->password;
+                var_dump($_SESSION);
+            } else {
+                echo 'Wrong LOGIN';
+            }
+        }
     }
 }

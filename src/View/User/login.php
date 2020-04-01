@@ -1,4 +1,5 @@
-<form action="/register" method="POST">
+<form action="./login" method="POST">
+    <label>Login FORM</label>
     <label>Email</label>
     <input name="email" placeholder="email" type="email">
     <label>Password</label>
