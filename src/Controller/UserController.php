@@ -9,20 +9,22 @@ class UserController extends Controller {
 
     }
     public function filterAction(){
-        echo "filter";
+        echo 'FILATE;';
+        $user = new UserModel('oui@oui.com','1234');
+        $user->update('users',['email'=>'test@oui.com','password'=>'oui'],2);
     }
     public function addAction(){
-        //var_dump($this->db);
-        //echo 'oui';
-        
+        $user = new UserModel('oui@oui.com','1234');
+        $user->create('users',['email'=> 'oui@non.com','password'=>'12345']);
+         
     }
 
     public function registerAction(){
-        $this->render('register');
-        if(isset($_POST['email']) && isset($_POST['password'])){
-            $user = new UserModel($_POST['email'],$_POST['password']);
-            $user->save();
-        }    
+        // $this->render('register');
+        // if(isset($_POST['email']) && isset($_POST['password'])){
+        //     $user = new UserModel($_POST['email'],$_POST['password']);
+        //     $user->save();
+        // }    
     }
 
     public function loginAction(){
