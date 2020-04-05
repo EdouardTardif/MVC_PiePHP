@@ -71,8 +71,15 @@ class UserModel {
         // var_dump($res);
     }
 
-    public function read_all(){
-
+    public function read_all($table){
+        $sql = "SELECT * FROM $table";
+        $requete = $this->db->prepare($sql);
+        $requete->execute();
+        if($count = $requete->rowCount() > 0){
+            return $resultat = $requete->fetch(PDO::FETCH_OBJ);
+        } else {
+            return null;
+        }
     }
 
     public function save(){
