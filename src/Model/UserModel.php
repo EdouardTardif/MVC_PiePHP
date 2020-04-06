@@ -13,29 +13,9 @@ class UserModel {
     }
 
 
-    public function create($table = 'users',$data = []){
-        // $values = '('.implode(",",$data) . ')';
-        // echo $values;
-        $columns = [];
-        $values = [];
-        $valeurs = [];
-        foreach($data as $key => $value){
-            $columns[] = $key;
-            $values[] = '?';
-            $valeurs[] = $value;
-        }
-        $columns = '('.implode(",",$columns) . ')';
-        $values = '('.implode(",",$values) . ')';
-        // echo $columns.'---------'.$values;
-
-
-        $sql = "INSERT INTO $table $columns VALUES $values";
-        echo $sql.PHP_EOL;
-        print_r($valeurs);
-        $requete = $this->db->prepare($sql);
-        $requete->execute($valeurs);
-        $res = $this->db->lastInsertId();
-        var_dump($res);
+    public function create(){
+        $orm = new ORM();
+        $orm->find();
     }
 
     public function read($id){
