@@ -1,13 +1,14 @@
 <?php
 
 // use Core\Database;
+namespace Core;
 Class Controller {
 
     // public $yes = 'yes';
     public $db;
     protected static $_render;
     public function __construct(){
-        $this->db = Database::getDatabase();
+        
     }
 
     protected function render($view, $scope = [])

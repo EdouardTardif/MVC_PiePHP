@@ -7,6 +7,7 @@ class Entity {
         foreach($arr as $key => $value){
             $this->key = $value;
         }
-
     }
+
+    
 }

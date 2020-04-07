@@ -2,45 +2,43 @@
 
 // use Core\Database;
 
-class UserController extends Controller {
+class UserController extends \Core\Controller {
 
     public function indexAction(){
+        echo "oui";
         // $db = Database::getDatabase();
 
     }
     public function filterAction(){
-        echo 'FILATE;';
-        $user = new UserModel('oui@oui.com','1234');
-        $user->update('users',['email'=>'test@oui.com','password'=>'oui'],2);
     }
+
     public function addAction(){
-        $user = new UserModel('oui@oui.com','1234');
-        $user->create('users',['email'=> 'oui@non.com','password'=>'12345']);
-         
+        echo "added";
     }
 
     public function registerAction(){
-        // $this->render('register');
-        // if(isset($_POST['email']) && isset($_POST['password'])){
-        //     $user = new UserModel($_POST['email'],$_POST['password']);
-        //     $user->save();
-        // }    
+        $params = $this->request->getQueryParams();
+        $user = new \Model\UserModel($params);
+        if (!$user->emailExist()) {
+            $user->create();
+            self :: $_render = " Votre compte a ete cree ." . PHP_EOL ;
+        }
     }
 
     public function loginAction(){
-        $this->render('login');
-        if(isset($_POST['email']) && isset($_POST['password'])){
-            $user = new UserModel($_POST['email'],$_POST['password']);
-            $res = $user->login();
-            if($res !== null){
-                session_start();
-                $_SESSION['id'] = $res->id;
-                $_SESSION['email'] = $res->email;
-                $_SESSION['password'] = $res->password;
-                var_dump($_SESSION);
-            } else {
-                echo 'Wrong LOGIN';
-            }
-        }
+        // $this->render('login');
+        // if(isset($_POST['email']) && isset($_POST['password'])){
+        //     $user = new \Model\UserModel($_POST['email'],$_POST['password']);
+        //     $res = $user->login();
+        //     if($res !== null){
+        //         session_start();
+        //         $_SESSION['id'] = $res->id;
+        //         $_SESSION['email'] = $res->email;
+        //         $_SESSION['password'] = $res->password;
+        //         var_dump($_SESSION);
+        //     } else {
+        //         echo 'Wrong LOGIN';
+        //     }
+        // }
     }
 }

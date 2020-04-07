@@ -1,12 +1,12 @@
 <?php
 
-// namespace Core;
+namespace Core;
 
 class ORM {
     public $db;
 
     public function __construct(){
-        $this->db = Database::getDatabase();
+        $this->db = \Core\Database::getDatabase();
     }
 
     public function create($table = 'users',$data = []){
@@ -56,6 +56,20 @@ class ORM {
         $requete = $this->db->prepare($sql);
         $bool = $requete->execute([$id]);
         return $bool;
+    }
+
+    public function check($table = 'users',$data = ['email'=>'oui@oui.com']){
+        $columns = '';
+        $valeurs = '';
+        foreach($data as $key => $value){
+            $columns = $key;
+            $valeurs = $value;
+        }
+        $sql = "SELECT * FROM $table WHERE $columns = ?";
+        $requete = $this->db->prepare($sql);
+        $requete->execute([$valeurs]);
+        $count = $requete->rowCount();
+        return $count;
     }
 
     public function find($table = 'users',$params = ['WHERE' => '1','ORDER BY' => 'id ASC','LIMIT' => '']){
