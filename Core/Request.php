@@ -3,20 +3,9 @@
 namespace Core;
 class Request {
     public static function secure(){
-        foreach($_POST as $keys => $POST){
-            $POST = htmlspecialchars($POST);
-            $POST = trim($POST);
-            $POST = stripslashes($POST);
+        foreach($_REQUEST as $keys => $POST){
+            $POST = stripslashes(trim(htmlspecialchars($POST)));
             $_POST[$keys] = $POST;
         }
-        
-        foreach($_GET as $keys => $GET){
-            $GET = htmlspecialchars($GET);
-            $GET = trim($GET);
-            $GET = stripslashes($GET);
-            $_GET[$keys] = $GET;
-       }
-
-
    }
 }
