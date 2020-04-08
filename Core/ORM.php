@@ -76,11 +76,12 @@ class ORM {
         $sql = "SELECT * FROM $table";
         $valeurs = [];
         foreach($params as $key => $param){
-            $sql .= " $key ?";
+            $sql .= " $key $param";
             $valeurs[] = $param;
         }
-        $requete = $this->db->prepare($sql);
-        $requete->execute($valeurs);
+        // echo $sql;
+        $requete = $this->db->query($sql);
+        // $requete->execute($valeurs);
         $res = $requete->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }

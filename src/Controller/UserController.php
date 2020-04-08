@@ -9,9 +9,9 @@ class UserController extends \Core\Controller {
     }
 
     public function indexAction(){
-        echo "oui";
-        // $db = Database::getDatabase();
-
+        // $params = $this->request->getQueryParams();
+        $user = new \Model\UserModel(['id'=>'23']);
+        var_dump($user);
     }
     public function filterAction(){
     }
@@ -23,7 +23,7 @@ class UserController extends \Core\Controller {
     public function registerAction(){
         $params = $this->request->getQueryParams();
         $user = new \Model\UserModel($params);
-        var_dump($user);
+        // var_dump($user);
         // var_dump($user->emailExist());
         if (!$user->emailExist()) {
             $user->create();
