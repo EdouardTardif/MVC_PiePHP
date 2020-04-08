@@ -4,6 +4,10 @@
 
 class UserController extends \Core\Controller {
 
+    public function __construct(){
+        $this->request = new \Core\Request();
+    }
+
     public function indexAction(){
         echo "oui";
         // $db = Database::getDatabase();
@@ -13,15 +17,20 @@ class UserController extends \Core\Controller {
     }
 
     public function addAction(){
-        echo "added";
+        $this->render('register');
     }
 
     public function registerAction(){
         $params = $this->request->getQueryParams();
         $user = new \Model\UserModel($params);
+        var_dump($user);
+        // var_dump($user->emailExist());
         if (!$user->emailExist()) {
             $user->create();
-            self :: $_render = " Votre compte a ete cree ." . PHP_EOL ;
+        // //     self :: $_render = " Votre compte a ete cree ." . PHP_EOL ;
+            echo 'cbon';
+        } else {
+            echo 'Email existe deja';
         }
     }
 

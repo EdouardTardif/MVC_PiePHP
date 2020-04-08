@@ -16,6 +16,9 @@ spl_autoload_register(function($class){
     } elseif(file_exists('./src/Model/'.$class)){
         echo 'autoloaded-->'.'./src/Model/'.$class.PHP_EOL;
         require './src/Model/'.$class;
+    } elseif(file_exists('./src/'.$class)){
+        echo 'autoloaded-->'.'./src/'.$class.PHP_EOL;
+        require './src/'.$class;
     } else {
         echo 'failed autoload-->'.$class.PHP_EOL;
     }

@@ -4,20 +4,16 @@
 namespace Model;
 class UserModel extends \Core\Entity {
 
-    public $db;
-
-    public function __construct(){
-        $this->db = \Core\Database::getDatabase();
-        $this->orm = new \Core\ORM();
-    }
+    // public $db;
 
 
     public function create(){
-        $orm = new \Core\ORM();
-        $orm->find();
+        $this->id = $this->orm->create('users',$this->data);
+        echo $this->id;
     }
 
     public function emailExist(){
+        // echo 'checking this email -->'.$this->email;
         if(isset($this->email)){
             if($this->orm->check('users',['email'=>$this->email]) > 0) {
                 return true;

@@ -1,7 +1,7 @@
 <?php
 
 namespace Core;
-
+use PDO;
 class ORM {
     public $db;
 

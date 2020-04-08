@@ -2,10 +2,12 @@
 
 namespace Core;
 class Request {
-    public static function secure(){
+    public static function getQueryParams(){
+        $newrequest = [];
         foreach($_REQUEST as $keys => $POST){
             $POST = stripslashes(trim(htmlspecialchars($POST)));
-            $_REQUEST[$keys] = $POST;
+            $newrequest[$keys] = $POST;
         }
+        return $newrequest;
    }
 }
