@@ -6,7 +6,7 @@ class UserModel extends \Core\Entity {
     public $relations = [
         'has_many' => ['table'=>'article','key'=>'user_id'],
         'has_one' => ['table' => 'promo','key'=>'promo_id'],
-        'many_to_many' => ['table1' => 'user','table2' => 'foods']
+        'many_to_many' => ['table1' => 'user','table2' => 'food']
     ];
 
 

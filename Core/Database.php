@@ -15,7 +15,6 @@ class Database {
     public static function getDatabase(){
         try {
             self::$db = new PDO('mysql:host='.self::$host.';dbname='.self::$dbname, self::$login, self::$password);
-            // echo 'cbon';
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }

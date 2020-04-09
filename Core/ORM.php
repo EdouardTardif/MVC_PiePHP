@@ -79,7 +79,7 @@ class ORM {
             $sql .= " $key $param";
             $valeurs[] = $param;
         }
-        // echo $sql;
+        echo 'find sql ------>'.$sql.PHP_EOL;
         $requete = $this->db->query($sql);
         // $requete->execute($valeurs);
         $res = $requete->fetchAll(PDO::FETCH_ASSOC);

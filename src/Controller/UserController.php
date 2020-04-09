@@ -11,7 +11,9 @@ class UserController extends \Core\Controller {
     public function indexAction(){
         // $params = $this->request->getQueryParams();
         $user = new \Model\UserModel(['id'=>'23']);
-        var_dump($user);
+        var_dump($user->article[0]->content);
+        // $user->food[0]->name;
+        // self::render('profile',$user);
     }
     public function filterAction(){
     }
