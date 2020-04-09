@@ -15,6 +15,22 @@ class UserModel extends \Core\Entity {
         echo $this->id;
     }
 
+    public function delete(){
+        $this->orm->delete('users',$this->id);
+        echo 'User deleted'.PHP_EOL;
+    }
+
+    public function read(){
+        $res = $this->orm->read('users',$this->id);
+        return $res;
+    }
+
+    public function update(){
+        $this->orm->update('users',$this->data);
+        echo 'Updated'.PHP_EOL;
+    }
+
+
     public function emailExist(){
         // echo 'checking this email -->'.$this->email;
         if(isset($this->email)){

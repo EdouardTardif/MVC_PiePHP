@@ -8,12 +8,17 @@ class UserController extends \Core\Controller {
         $this->request = new \Core\Request();
     }
 
+
+    public function show($id){
+        echo " ID de l' utilisateur a afficher : $id" .PHP_EOL;
+    }
+
     public function indexAction(){
         // $params = $this->request->getQueryParams();
         $user = new \Model\UserModel(['id'=>'23']);
         var_dump($user->article[0]->content);
         // $user->food[0]->name;
-        // self::render('profile',$user);
+        self::render('profile',['user' => $user]);
     }
     public function filterAction(){
     }
