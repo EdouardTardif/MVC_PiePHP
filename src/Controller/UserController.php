@@ -9,7 +9,7 @@ class UserController extends \Core\Controller {
     }
 
 
-    public function show($id){
+    public function showAction($id){
         echo " ID de l' utilisateur a afficher : $id" .PHP_EOL;
     }
 

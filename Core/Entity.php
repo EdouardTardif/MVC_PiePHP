@@ -69,7 +69,7 @@ class Entity {
                         $currentid = $re['id'];
                         $resch = $this->orm->read($relation["table2"]."s",$currentid);
                         $class = "\Model\\".$relation["table2"]."Model";
-                        echo $class.PHP_EOL;
+                        // echo $class.PHP_EOL;
                         $this->$variablename[] = new $class($resch);
                     }
 

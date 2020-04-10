@@ -21,8 +21,10 @@ class Core
         $url = '/'. implode("/",$arraystatic);
         // echo $url.PHP_EOL;
         $route = Router::get($url);
-        if($route != null){
-            // echo "Find a route !! for $url".PHP_EOL;
+        if($route === true){
+            //tout se fait dans Router
+        }
+        elseif($route != null){
             $controller = ucfirst($route['controller']) . 'Controller';
             $action = $route['action'].'Action';
             $class = new $controller();
