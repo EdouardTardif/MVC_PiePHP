@@ -11,7 +11,7 @@ class Entity {
         
         
 
-        if(isset($arr['id'])) {
+        if(isset($arr['id']) && count($arr) == 1) {
             $this->id = $arr['id'];
             $table = strtolower(strrev(substr(strrev(substr(get_class($this),6)),5)) .'s');
             // echo 'le test est ici ------------->'.$table.PHP_EOL;

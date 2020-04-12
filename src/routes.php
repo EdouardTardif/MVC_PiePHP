@@ -20,6 +20,4 @@ Router::connect('/genre/info/{id}',['controller' => 'genre','action' => 'info'])
 Router::connect('/genre/update/{id}',['controller' => 'genre','action' => 'update']);
 Router::connect('/genre/delete/{id}',['controller' => 'genre','action' => 'delete']);
 
-
-
 // Router::connect('/user',['controller' => 'user','action' => 'filter']);

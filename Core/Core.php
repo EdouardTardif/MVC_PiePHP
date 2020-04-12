@@ -48,7 +48,7 @@ class Core
                     die("Error: headers already sent!");
                 }
                 else {
-                    // echo 'no';
+                    echo '404';
                     header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
                     exit();
                 }

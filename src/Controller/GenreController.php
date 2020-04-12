@@ -29,10 +29,10 @@ class GenreController extends \Core\Controller {
     public function registerAction(){
         $params = $this->request->getQueryParams();
         $user = new \Model\GenreModel($params);
+        var_dump($user);
         $user->create();
         header('Location: http://localhost/MVC_PiePHP/genre/all');
     }
-
 
     public function updateAction($id){
         $params = $this->request->getQueryParams();
