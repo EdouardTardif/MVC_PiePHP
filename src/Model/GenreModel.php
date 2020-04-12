@@ -1,32 +1,36 @@
 <?php
 
 
+
 namespace Model;
-class UserModel extends \Core\Entity {
+
+
+class GenreModel extends \Core\Entity {
+
     // public $relations = [
-    //     'has_many' => ['table'=>'article','key'=>'user_id'],
-    //     'has_one' => ['table' => 'promo','key'=>'promo_id'],
-    //     'many_to_many' => ['table1' => 'user','table2' => 'food']
+    //     'has_many' => ['table'=>'film','key'=>'id_genre']
+    //     // 'has_one' => ['table' => 'genre','key'=>'id_genre']
+    //     // 'many_to_many' => ['table1' => 'user','table2' => 'food']
     // ];
 
 
     public function create(){
-        $this->id = $this->orm->create('users',$this->data);
+        $this->id = $this->orm->create('genres',$this->data);
         echo $this->id;
     }
 
     public function delete(){
-        $this->orm->delete('users',$this->id);
-        echo 'User deleted'.PHP_EOL;
+        $this->orm->delete('genres',$this->id);
+        echo 'film deleted'.PHP_EOL;
     }
 
     public function read(){
-        $res = $this->orm->read('users',$this->id);
+        $res = $this->orm->read('genres',$this->id);
         return $res;
     }
 
-    public function update(){
-        $this->orm->update('users',$_SESSION['id'],$this->data);
+    public function update($id){
+        $this->orm->update('genres',$id,$this->data);
         echo 'Updated'.PHP_EOL;
     }
 
@@ -34,7 +38,7 @@ class UserModel extends \Core\Entity {
     public function emailExist(){
         // echo 'checking this email -->'.$this->email;
         if(isset($this->email)){
-            if($this->orm->check('users',['email'=>$this->email]) > 0) {
+            if($this->orm->check('genres',['email'=>$this->email]) > 0) {
                 return true;
             } else {
                 return false;
@@ -53,4 +57,7 @@ class UserModel extends \Core\Entity {
             return false;
         }
     }
+
 }
+
+?>

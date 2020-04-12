@@ -7,7 +7,7 @@ class Database {
 
     public static $db;
     private static $host = 'localhost';
-    private static $dbname = 'mvc_piephp';
+    private static $dbname = 'cinema';
     private static $login = 'root';
     private static $password = '';
 

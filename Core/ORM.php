@@ -38,6 +38,7 @@ class ORM {
         }
         $columns = implode(",",$columns);
         $sql = "UPDATE $table SET $columns WHERE id = $id";
+        echo $sql;
         $requete = $this->db->prepare($sql);
         $bool = $requete->execute($valeurs);
         return $bool;
@@ -45,6 +46,7 @@ class ORM {
 
     public function read($table,$id){
         $sql = "SELECT * FROM $table WHERE id = ?";
+        // echo $id;
         $requete = $this->db->prepare($sql);
         $requete->execute([$id]);
         $res = $requete->fetch(PDO::FETCH_ASSOC);
@@ -79,7 +81,7 @@ class ORM {
             $sql .= " $key $param";
             $valeurs[] = $param;
         }
-        // echo 'find sql ------>'.$sql.PHP_EOL;
+        echo 'find sql ------>'.$sql.PHP_EOL;
         $requete = $this->db->query($sql);
         // $requete->execute($valeurs);
         $res = $requete->fetchAll(PDO::FETCH_ASSOC);

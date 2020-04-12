@@ -2,31 +2,31 @@
 
 
 namespace Model;
-class UserModel extends \Core\Entity {
-    // public $relations = [
-    //     'has_many' => ['table'=>'article','key'=>'user_id'],
-    //     'has_one' => ['table' => 'promo','key'=>'promo_id'],
-    //     'many_to_many' => ['table1' => 'user','table2' => 'food']
-    // ];
+class FilmModel extends \Core\Entity {
+    public $relations = [
+        // 'has_many' => ['table'=>'article','key'=>'user_id'],
+        'has_one' => ['table' => 'genre','key'=>'id_genre']
+        // 'many_to_many' => ['table1' => 'user','table2' => 'food']
+    ];
 
 
     public function create(){
-        $this->id = $this->orm->create('users',$this->data);
+        $this->id = $this->orm->create('films',$this->data);
         echo $this->id;
     }
 
     public function delete(){
-        $this->orm->delete('users',$this->id);
-        echo 'User deleted'.PHP_EOL;
+        $this->orm->delete('films',$this->id);
+        echo 'film deleted'.PHP_EOL;
     }
 
     public function read(){
-        $res = $this->orm->read('users',$this->id);
+        $res = $this->orm->read('films',$this->id);
         return $res;
     }
 
-    public function update(){
-        $this->orm->update('users',$_SESSION['id'],$this->data);
+    public function update($id){
+        $this->orm->update('films',$id,$this->data);
         echo 'Updated'.PHP_EOL;
     }
 

@@ -44,11 +44,11 @@ class Core
                 }
             } else {
                 if (headers_sent()) {
-                    echo 'yes';
+                    // echo 'yes';
                     die("Error: headers already sent!");
                 }
                 else {
-                    echo 'no';
+                    // echo 'no';
                     header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
                     exit();
                 }

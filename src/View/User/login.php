@@ -1,8 +1,14 @@
-<form action="./login" method="POST">
-    <label>Login FORM</label>
-    <label>Email</label>
-    <input name="email" placeholder="email" type="email">
-    <label>Password</label>
-    <input name="password" placeholder="password" type="password">
-    <input placeholder="LOGIN" type="submit">
-</form>
+<div class="container">
+    <form action="./user/connec" method="POST">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">S'incrire</button>
+    </form>
+</div>
